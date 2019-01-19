@@ -33,7 +33,7 @@ public class AtmTest {
 		// Act
 		int withdrawalAmount = underTest.withdraw(50);
 		// Assert
-		assertEquals(50, withdrawalAmount);
+		assertEquals(150, withdrawalAmount);
 	}
 
 	@Test
@@ -78,5 +78,15 @@ public class AtmTest {
 		int depositAmount = underTest.deposit(100);
 		// Assert
 		assertEquals(100, depositAmount);
+	}
+	
+	@Test
+	public void shouldOnlyBeAbleToWithdrawalByTens() {
+		// Arrange
+		Atm underTest = new Atm(200);
+		// Act
+		int withdrawalAmount = underTest.withdraw(11);
+		// Assert
+		assertEquals(200, withdrawalAmount);
 	}
 }
