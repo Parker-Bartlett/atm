@@ -16,8 +16,8 @@ public class Atm {
 		return amount;
 	}
 
-	public void deposit() {
-		balance += 50;
-
+	public int deposit(int amount) {
+		balance += amount;
+		return amount;
 	}
 }
