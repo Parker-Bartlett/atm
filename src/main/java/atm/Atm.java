@@ -11,10 +11,9 @@ public class Atm {
 		return balance;
 	}
 
-	public int withdraw() {
-		int withdrawalAmount = 50;
-		balance -= withdrawalAmount;
-		return withdrawalAmount;
+	public int withdraw(int amount) {
+		balance -= amount;
+		return amount;
 	}
 
 	public void deposit() {
