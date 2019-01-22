@@ -11,14 +11,21 @@ public class Atm {
 		return balance;
 	}
 
-	public int withdraw() {
-		int withdrawalAmount = 50;
-		balance -= withdrawalAmount;
-		return withdrawalAmount;
+	public int withdraw(int amount) {
+		if (amount < balance) {
+			if (amount % 10 == 0) {
+				balance -= amount;
+			} else {
+				System.out.println("Please withdraw a multiple of ten.");
+			}
+		} else {
+			System.out.println("You can't take out more than you have.");
+		}
+		return balance;
 	}
 
-	public void deposit() {
-		balance += 50;
-
+	public int deposit(int amount) {
+		balance += amount;
+		return balance;
 	}
 }

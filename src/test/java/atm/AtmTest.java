@@ -31,9 +31,9 @@ public class AtmTest {
 		// Arrange
 		Atm underTest = new Atm(200);
 		// Act
-		int withdrawalAmount = underTest.withdraw();
+		int withdrawalAmount = underTest.withdraw(50);
 		// Assert
-		assertEquals(50, withdrawalAmount);
+		assertEquals(150, withdrawalAmount);
 	}
 
 	@Test
@@ -42,7 +42,7 @@ public class AtmTest {
 		Atm underTest = new Atm(200);
 		// Act
 		int originalBalance = underTest.checkBalance();
-		underTest.withdraw();
+		underTest.withdraw(50);
 		int newBalance = underTest.checkBalance();
 		// Assert
 		assertEquals(originalBalance - 50, newBalance);
@@ -54,9 +54,39 @@ public class AtmTest {
 		Atm underTest = new Atm(200);
 		// Act
 		int originalBalance = underTest.checkBalance();
-		underTest.deposit();
+		underTest.deposit(50);
 		int newBalance = underTest.checkBalance();
 		// Assert
 		assertEquals(originalBalance + 50, newBalance);
+	}
+
+	@Test
+	public void shouldWithdrawCustomAmount() {
+		// Arrange
+		Atm underTest = new Atm(200);
+		// Act
+		int withdrawalAmount = underTest.withdraw(100);
+		// Assert
+		assertEquals(100, withdrawalAmount);
+	}
+	
+	@Test
+	public void shouldDepositCustomAmount() {
+		// Arrange
+		Atm underTest = new Atm(200);
+		// Act
+		int depositAmount = underTest.deposit(100);
+		// Assert
+		assertEquals(100, depositAmount);
+	}
+	
+	@Test
+	public void shouldOnlyBeAbleToWithdrawalByTens() {
+		// Arrange
+		Atm underTest = new Atm(200);
+		// Act
+		int withdrawalAmount = underTest.withdraw(11);
+		// Assert
+		assertEquals(200, withdrawalAmount);
 	}
 }
