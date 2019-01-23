@@ -1,6 +1,8 @@
 package atm;
-
+import java.util.Scanner;
 public class Atm {
+	Scanner input = new Scanner(System.in);
+	
 	private int balance;
 	private String pid;
 	private String password;
@@ -42,19 +44,29 @@ public class Atm {
 		String acct3Password = "mayla";
 		int attempts = 0;
 
-		while (attempts < 3) {
+		while (attempts < 2) {
 			if (pid.equals(acct1Pid) && password.equals(acct1Password)) {
-				System.out.println("Welcome to Parker's ATM!");
+				System.out.println("\nWelcome to Parker's ATM!");
 				break;
 			} else if (pid.equals(acct2Pid) && password.equals(acct2Password)) {
-				System.out.println("Welcome to Parker's ATM!");
+				System.out.println("\nWelcome to Parker's ATM!");
 				break;
 			} else if (pid.equals(acct3Pid) && password.equals(acct3Password)) {
-				System.out.println("Welcome to Parker's ATM!");
+				System.out.println("\nWelcome to Parker's ATM!");
 				break;
+			} else {
+				System.out.print("Incorrect PID or Password \nPlease re-enter you Personal Identification number: ");
+				pid = input.next();
+				System.out.print("Please re-enter your Password: ");
+				password = input.next();
 			}
+			
 			attempts++;
 			
+			if (attempts == 2) {
+				System.out.println("To many attempts, you are now locked out.");
+				System.exit(0);
+			}
 		}
 	}
 }
