@@ -6,9 +6,19 @@ public class Application {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		Atm atm = new Atm(500);
+		
+		//login prompt
+		System.out.print("Please enter your Personal Identification Number: ");
+		String pid = input.next();
+		System.out.print("Please enter your Password: ");
+		String password = input.next();
 
-		System.out.println("Welcome to Parker's ATM!");
+		//Create ATM object
+		Atm atm = new Atm(500, pid, password);
+		
+		//Check pid and password
+		atm.checkPidPassword();
+		
 		// Main menu
 		menuOutput();
 		// Main menu choice
@@ -22,11 +32,11 @@ public class Application {
 			if (menuChoice.equals("1")) {
 				System.out.println(atm.checkBalance());
 			} else if (menuChoice.contentEquals("2")) {
-				System.out.print("How much Would you like to withdraw?");
+				System.out.print("How much would you like to withdrawal? ");
 				int amount = input.nextInt();
 				System.out.println(atm.withdraw(amount));
 			} else if (menuChoice.contentEquals("3")) {
-				System.out.print("How much Would you like to deposit?");
+				System.out.print("How much would you like to deposit? ");
 				int amount = input.nextInt();
 				System.out.println(atm.deposit(amount));
 			} else if (menuChoice.contentEquals("4")) {
