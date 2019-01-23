@@ -9,7 +9,7 @@ public class AtmTest {
 	@Test
 	public void shouldReturnOneHundredForBalance() {
 		// Arrange
-		Atm underTest = new Atm(100);
+		Atm underTest = new Atm(200, "test", "test");		
 		// Act
 		int actual = underTest.checkBalance();
 		// Assert
@@ -19,7 +19,7 @@ public class AtmTest {
 	@Test
 	public void shouldReturnTwoHundredForBalance() {
 		// Arrange
-		Atm underTest = new Atm(200);
+		Atm underTest = new Atm(200, "test", "test");
 		// Act
 		int actual = underTest.checkBalance();
 		// Assert
@@ -29,7 +29,7 @@ public class AtmTest {
 	@Test
 	public void shouldWithdraw() {
 		// Arrange
-		Atm underTest = new Atm(200);
+		Atm underTest = new Atm(200, "test", "test");		
 		// Act
 		int withdrawalAmount = underTest.withdraw(50);
 		// Assert
@@ -39,7 +39,7 @@ public class AtmTest {
 	@Test
 	public void shouldDecreaseWhenMoneyIsWithdrawn() {
 		// Arrange
-		Atm underTest = new Atm(200);
+		Atm underTest = new Atm(200, "test", "test");		
 		// Act
 		int originalBalance = underTest.checkBalance();
 		underTest.withdraw(50);
@@ -51,7 +51,7 @@ public class AtmTest {
 	@Test
 	public void shouldIncreaseWhenMoneyIsDeposited() {
 		// Arrange
-		Atm underTest = new Atm(200);
+		Atm underTest = new Atm(200, "test", "test");		
 		// Act
 		int originalBalance = underTest.checkBalance();
 		underTest.deposit(50);
@@ -63,7 +63,7 @@ public class AtmTest {
 	@Test
 	public void shouldWithdrawCustomAmount() {
 		// Arrange
-		Atm underTest = new Atm(200);
+		Atm underTest = new Atm(200, "test", "test");		
 		// Act
 		int withdrawalAmount = underTest.withdraw(100);
 		// Assert
@@ -73,7 +73,7 @@ public class AtmTest {
 	@Test
 	public void shouldDepositCustomAmount() {
 		// Arrange
-		Atm underTest = new Atm(200);
+		Atm underTest = new Atm(200, "test", "test");		
 		// Act
 		int depositAmount = underTest.deposit(100);
 		// Assert
@@ -83,7 +83,7 @@ public class AtmTest {
 	@Test
 	public void shouldOnlyBeAbleToWithdrawalByTens() {
 		// Arrange
-		Atm underTest = new Atm(200);
+		Atm underTest = new Atm(200, "test", "test");		
 		// Act
 		int withdrawalAmount = underTest.withdraw(11);
 		// Assert
