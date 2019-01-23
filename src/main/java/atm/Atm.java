@@ -13,11 +13,11 @@ public class Atm {
 		this.password = password;
 	}
 
-	public int checkBalance() {
-		return balance;
+	public String checkBalance() {
+		return "Your current balance is " +balance+ " dollars.";
 	}
 
-	public int withdraw(int amount) {
+	public String withdraw(int amount) {
 		if (amount < balance) {
 			if (amount % 10 == 0) {
 				balance -= amount;
@@ -27,12 +27,12 @@ public class Atm {
 		} else {
 			System.out.println("You can't take out more than you have.");
 		}
-		return balance;
+		return "You have withdrawn " +amount+ " dollars, and your current balance is " +balance+ " dollars.";
 	}
 
-	public int deposit(int amount) {
+	public String deposit(int amount) {
 		balance += amount;
-		return balance;
+		return "You have deposited " +amount+ " dollars, and your balance is " +balance+ " dollars.S";
 	}
 
 	public void checkPidPassword() {
@@ -64,7 +64,7 @@ public class Atm {
 			attempts++;
 			
 			if (attempts == 2) {
-				System.out.println("To many attempts, you are now locked out.");
+				System.out.println("Too many attempts, you are now locked out.");
 				System.exit(0);
 			}
 		}

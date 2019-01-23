@@ -32,11 +32,11 @@ public class Application {
 			if (menuChoice.equals("1")) {
 				System.out.println(atm.checkBalance());
 			} else if (menuChoice.contentEquals("2")) {
-				System.out.print("How much Would you like to withdraw?");
+				System.out.print("How much would you like to withdrawal? ");
 				int amount = input.nextInt();
 				System.out.println(atm.withdraw(amount));
 			} else if (menuChoice.contentEquals("3")) {
-				System.out.print("How much Would you like to deposit?");
+				System.out.print("How much would you like to deposit? ");
 				int amount = input.nextInt();
 				System.out.println(atm.deposit(amount));
 			} else if (menuChoice.contentEquals("4")) {
